@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -87,12 +88,12 @@ export default {
       },
       keyframes: {
         'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
+          from: { height: '0', opacity: '0' },
+          to: { height: 'var(--radix-accordion-content-height)', opacity: '1' }
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
+          from: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
+          to: { height: '0', opacity: '0' }
         },
         'fade-in-up': {
           '0%': {
@@ -142,7 +143,8 @@ export default {
         'background-shine': 'background-shine 3s linear infinite'
       },
       boxShadow: {
-        'glow': '0 0 16px rgba(99, 102, 241, 0.4)',
+        'glow': '0 0 16px rgba(127, 90, 240, 0.4)',
+        'card': '0 4px 12px rgba(0,0,0,0.25)',
       },
     }
   },

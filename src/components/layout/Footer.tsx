@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-secondary pt-16 pb-8">
+    <footer className="bg-secondary pt-16 pb-8 dark:bg-[#0A0A0C]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="font-bold text-lg mb-4">Navigation</h3>
+            <h3 className="font-bold text-lg mb-4 text-foreground">Navigation</h3>
             <ul className="space-y-2">
               <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/survey" className="text-muted-foreground hover:text-primary transition-colors">Survey</Link></li>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="font-bold text-lg mb-4">Resources</h3>
+            <h3 className="font-bold text-lg mb-4 text-foreground">Resources</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Documentation</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</a></li>
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
+            <h3 className="font-bold text-lg mb-4 text-foreground">Contact</h3>
             <ul className="space-y-2">
               <li className="text-muted-foreground">info@ecotrack.com</li>
               <li className="text-muted-foreground">+1 (555) 123-4567</li>

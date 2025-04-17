@@ -34,21 +34,21 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-white to-secondary/50"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-white to-secondary/50 dark:from-[#1C1C1E] dark:to-[#0E0E10]"
       ref={parallaxRef}
     >
       {/* Floating Background Elements */}
       <div 
         ref={shape1Ref}
-        className="absolute top-32 left-1/4 w-64 h-64 bg-gradient-to-br from-primary/10 to-primary/30 rounded-full blur-3xl opacity-50"
+        className="absolute top-32 left-1/4 w-64 h-64 bg-gradient-to-br from-primary/10 to-primary/30 rounded-full blur-3xl opacity-50 dark:from-primary/5 dark:to-primary/15"
       />
       <div 
         ref={shape2Ref}
-        className="absolute bottom-16 right-1/4 w-48 h-48 bg-gradient-to-tr from-highlight/20 to-highlight/40 rounded-full blur-3xl opacity-40"
+        className="absolute bottom-16 right-1/4 w-48 h-48 bg-gradient-to-tr from-highlight/20 to-highlight/40 rounded-full blur-3xl opacity-40 dark:from-highlight/10 dark:to-highlight/20"
       />
       <div 
         ref={shape3Ref}
-        className="absolute top-1/2 right-1/4 w-32 h-32 bg-gradient-to-bl from-primary/20 to-highlight/20 rounded-full blur-2xl opacity-60"
+        className="absolute top-1/2 right-1/4 w-32 h-32 bg-gradient-to-bl from-primary/20 to-highlight/20 rounded-full blur-2xl opacity-60 dark:from-primary/10 dark:to-highlight/10"
       />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -79,10 +79,10 @@ const HeroSection = () => {
         
         <ScrollAnimator delay={600}>
           <div className="relative max-w-5xl mx-auto">
-            <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
-              <div className="w-full h-full bg-secondary rounded-xl flex items-center justify-center">
+            <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-[#161618] p-2">
+              <div className="w-full h-full bg-secondary dark:bg-[#1E1E1E] rounded-xl flex items-center justify-center">
                 <div className="p-8 text-center">
-                  <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
+                  <div className="inline-block p-4 bg-primary/10 dark:bg-primary/5 rounded-full mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                       <path d="M3 6h18" />
                       <path d="M7 12h10" />

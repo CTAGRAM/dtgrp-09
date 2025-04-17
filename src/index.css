@@ -48,46 +48,48 @@
   }
 
   .dark {
-    --background: 240 10% 4%;
+    --background: 240 7% 6%;
     --foreground: 0 0% 96%;
 
-    --card: 240 10% 12%;
+    --card: 240 4% 9%;
     --card-foreground: 0 0% 96%;
 
-    --popover: 240 10% 12%;
+    --popover: 240 4% 9%;
     --popover-foreground: 0 0% 96%;
 
-    --primary: 239 84% 74%;
+    --primary: 261 80% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 5% 12%;
+    --secondary: 240 4% 12%;
     --secondary-foreground: 0 0% 96%;
 
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 65%;
 
-    --accent: 240 5% 15%;
+    --accent: 240 4% 12%;
     --accent-foreground: 0 0% 96%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --input: 240 4% 12%;
+    --ring: 261 80% 65%;
 
-    --sidebar-background: 240 10% 4%;
+    --sidebar-background: 240 7% 6%;
     --sidebar-foreground: 0 0% 96%;
     --sidebar-primary: 0 0% 96%;
     --sidebar-primary-foreground: 240 10% 4%;
     --sidebar-accent: 240 5% 15%;
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 239 84% 74%;
+    --sidebar-ring: 261 80% 65%;
+    
+    --highlight: 48 96% 53%;
   }
 
   * {
-    @apply border-border transition-colors duration-300;
+    @apply border-border transition-all duration-300;
   }
 
   html {
@@ -110,11 +112,11 @@
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 active:scale-95 dark:bg-transparent dark:border dark:border-foreground;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 dark:hover:shadow-lg dark:shadow-none;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 dark:hover:shadow-card dark:shadow-none dark:hover:-translate-y-4;
   }
 
   .glass-effect {

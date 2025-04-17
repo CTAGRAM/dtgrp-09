@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import { Toggle } from '@/components/ui/toggle';
+import { Button } from '@/components/ui/button';
 
 const ThemeToggle = () => {
   // Initialize theme state from localStorage or system preference
@@ -37,19 +37,19 @@ const ThemeToggle = () => {
   }, [isDarkMode]);
 
   return (
-    <Toggle 
-      variant="outline" 
-      aria-label="Toggle theme" 
-      pressed={isDarkMode}
-      onPressedChange={toggleTheme}
-      className="rounded-full p-2 transition-colors duration-300"
+    <Button 
+      variant="ghost" 
+      size="icon"
+      onClick={toggleTheme}
+      className="rounded-full transition-colors duration-300 hover:text-primary"
+      aria-label="Toggle dark mode"
     >
       {isDarkMode ? (
-        <Moon className="size-5" />
+        <Moon className="h-5 w-5 text-foreground" />
       ) : (
-        <Sun className="size-5" />
+        <Sun className="h-5 w-5 text-foreground" />
       )}
-    </Toggle>
+    </Button>
   );
 };
 

@@ -18,7 +18,7 @@ import "./confetti.css";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Initialize scroll animations
+  // Initialize scroll animations and apply theme
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
