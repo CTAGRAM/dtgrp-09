@@ -137,9 +137,10 @@ export default {
 				'background-shine': 'background-shine 3s linear infinite'
 			},
 			transitionTimingFunction: {
-				'ease-in-out-quad': 'cubic-bezier(0.455, 0.03, 0.515, 0.955)'
-			}
+				'ease-in-out-quad': 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
