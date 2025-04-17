@@ -50,7 +50,7 @@ const values = [
   },
   {
     title: 'Innovation',
-    description: 'We constantly push the boundaries of what's possible in waste management technology.'
+    description: 'We constantly push the boundaries of what\'s possible in waste management technology.'
   },
   {
     title: 'Transparency',
