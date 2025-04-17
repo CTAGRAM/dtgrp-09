@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import ScrollAnimator from '../ui/ScrollAnimator';
+import SplineScene from './SplineScene';
 
 const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -34,9 +35,11 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-white to-secondary/50 dark:from-[#1C1C1E] dark:to-[#0E0E10]"
+      className="relative min-h-screen pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-white to-secondary/50 dark:from-[#1C1C1E] dark:to-[#0E0E10]"
       ref={parallaxRef}
     >
+      <SplineScene />
+      
       {/* Floating Background Elements */}
       <div 
         ref={shape1Ref}
