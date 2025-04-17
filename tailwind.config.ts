@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -80,6 +79,9 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 			},
+			transitionTimingFunction: {
+				'ease-in-out-quad': 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: { height: '0' },
@@ -143,4 +145,3 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
