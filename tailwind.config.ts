@@ -71,6 +71,9 @@ export default {
         },
         highlight: '#FACC15',
       },
+      backgroundSize: {
+        '300%': '300%',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -138,8 +141,8 @@ export default {
         'counter': 'counter 2s ease-out forwards',
         'background-shine': 'background-shine 3s linear infinite'
       },
-      backgroundSize: {
-        '300%': '300%',
+      boxShadow: {
+        'glow': '0 0 16px rgba(99, 102, 241, 0.4)',
       },
     }
   },
