@@ -69,7 +69,7 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <ScrollAnimator>
           <div className="text-center mb-16">
@@ -83,15 +83,15 @@ const StatsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <ScrollAnimator key={index} delay={index * 100}>
-              <div className="text-center p-6 bg-secondary/50 rounded-xl border border-border">
-                <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="text-center p-6 bg-card rounded-xl border border-border hover:shadow-lg transition-all duration-300 dark:hover:shadow-card">
+                <h3 className="text-4xl md:text-5xl font-bold text-highlight mb-2">
                   <Counter 
                     end={stat.value} 
                     prefix={stat.prefix || ''} 
                     suffix={stat.suffix || ''} 
                   />
                 </h3>
-                <p className="text-xl font-semibold mb-2">{stat.label}</p>
+                <p className="text-xl font-semibold mb-2 text-foreground">{stat.label}</p>
                 <p className="text-muted-foreground">{stat.description}</p>
               </div>
             </ScrollAnimator>
