@@ -27,7 +27,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <ScrollAnimator>
           <div className="text-center mb-16">
@@ -41,11 +41,11 @@ const FeaturesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <ScrollAnimator key={index} delay={index * 100}>
-              <div className="bg-white p-6 rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+              <div className="bg-card p-6 rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col dark:hover:shadow-card">
                 <div className="p-4 bg-primary/10 rounded-lg inline-block mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
               </div>
             </ScrollAnimator>
