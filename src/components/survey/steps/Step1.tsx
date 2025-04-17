@@ -5,6 +5,13 @@ import { toast } from '@/components/ui/sonner';
 import ScrollAnimator from '../../ui/ScrollAnimator';
 import { SurveyStepProps } from '../types';
 import { ChevronRight } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Step1 = ({ onNext }: SurveyStepProps) => {
   const [orgType, setOrgType] = useState('');
@@ -54,17 +61,17 @@ const Step1 = ({ onNext }: SurveyStepProps) => {
           <label className="block text-lg font-medium mb-2">
             Estimated monthly waste volume
           </label>
-          <select
-            value={wasteVolume}
-            onChange={(e) => setWasteVolume(e.target.value)}
-            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          >
-            <option value="">Select volume</option>
-            <option value="small">Less than 100 tons</option>
-            <option value="medium">100-500 tons</option>
-            <option value="large">500-1000 tons</option>
-            <option value="enterprise">More than 1000 tons</option>
-          </select>
+          <Select value={wasteVolume} onValueChange={setWasteVolume}>
+            <SelectTrigger className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground dark:bg-card/80">
+              <SelectValue placeholder="Select volume" />
+            </SelectTrigger>
+            <SelectContent className="bg-popover border border-border dark:bg-card dark:border-border">
+              <SelectItem value="small" className="focus:bg-primary/10 dark:focus:bg-primary/20">Less than 100 tons</SelectItem>
+              <SelectItem value="medium" className="focus:bg-primary/10 dark:focus:bg-primary/20">100-500 tons</SelectItem>
+              <SelectItem value="large" className="focus:bg-primary/10 dark:focus:bg-primary/20">500-1000 tons</SelectItem>
+              <SelectItem value="enterprise" className="focus:bg-primary/10 dark:focus:bg-primary/20">More than 1000 tons</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </ScrollAnimator>
 

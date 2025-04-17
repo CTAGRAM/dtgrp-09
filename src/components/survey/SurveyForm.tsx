@@ -34,7 +34,7 @@ const SurveyForm = () => {
     <div>
       {step < 4 && (
         <div className="mb-10">
-          <div className="h-2 bg-secondary rounded-full overflow-hidden">
+          <div className="h-2 bg-secondary rounded-full overflow-hidden dark:bg-secondary/40">
             <div 
               className="h-full bg-primary transition-all duration-500"
               style={{ width: `${(step / 3) * 100}%` }}

@@ -48,7 +48,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
             placeholder="Enter your full name"
           />
         </div>
@@ -63,7 +63,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
             placeholder="your@email.com"
           />
         </div>
@@ -78,7 +78,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             type="text"
             value={organization}
             onChange={(e) => setOrganization(e.target.value)}
-            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
             placeholder="Enter your organization name"
           />
         </div>

@@ -83,7 +83,7 @@ const Step2 = ({ onNext, onBack, data }: SurveyStepProps) => {
               type="text"
               value={otherChallenge}
               onChange={(e) => setOtherChallenge(e.target.value)}
-              className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
               placeholder="Describe your challenge"
             />
           </div>
