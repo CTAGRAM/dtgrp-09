@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import ScrollAnimator from '../ui/ScrollAnimator';
+import SplineBackground from './SplineBackground';
 
 const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -34,21 +35,23 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-white to-secondary/50 dark:from-[#1C1C1E] dark:to-[#0E0E10]"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-transparent dark:bg-transparent"
       ref={parallaxRef}
     >
-      {/* Floating Background Elements */}
+      <SplineBackground />
+      
+      {/* Floating Background Elements with reduced opacity */}
       <div 
         ref={shape1Ref}
-        className="absolute top-32 left-1/4 w-64 h-64 bg-gradient-to-br from-primary/10 to-primary/30 rounded-full blur-3xl opacity-50 dark:from-primary/5 dark:to-primary/15"
+        className="absolute top-32 left-1/4 w-64 h-64 bg-gradient-to-br from-primary/5 to-primary/20 rounded-full blur-3xl opacity-30 dark:from-primary/5 dark:to-primary/10"
       />
       <div 
         ref={shape2Ref}
-        className="absolute bottom-16 right-1/4 w-48 h-48 bg-gradient-to-tr from-highlight/20 to-highlight/40 rounded-full blur-3xl opacity-40 dark:from-highlight/10 dark:to-highlight/20"
+        className="absolute bottom-16 right-1/4 w-48 h-48 bg-gradient-to-tr from-highlight/10 to-highlight/30 rounded-full blur-3xl opacity-30 dark:from-highlight/5 dark:to-highlight/15"
       />
       <div 
         ref={shape3Ref}
-        className="absolute top-1/2 right-1/4 w-32 h-32 bg-gradient-to-bl from-primary/20 to-highlight/20 rounded-full blur-2xl opacity-60 dark:from-primary/10 dark:to-highlight/10"
+        className="absolute top-1/2 right-1/4 w-32 h-32 bg-gradient-to-bl from-primary/10 to-highlight/10 rounded-full blur-2xl opacity-40 dark:from-primary/5 dark:to-highlight/5"
       />
 
       <div className="container mx-auto px-4 relative z-10">
