@@ -1,4 +1,3 @@
-
 import Layout from '../components/layout/Layout';
 import CtaSection from '../components/shared/CtaSection';
 import ScrollAnimator from '../components/ui/ScrollAnimator';
@@ -65,11 +64,11 @@ const values = [
 const About = () => {
   return (
     <Layout>
-      <section className="pt-20 pb-16 bg-white">
+      <section className="pt-20 pb-16 bg-background">
         <div className="container mx-auto px-4">
           <ScrollAnimator>
             <div className="text-center mb-16">
-              <h1 className="heading-lg mb-4">Our Mission</h1>
+              <h1 className="heading-lg mb-4 text-foreground">Our Mission</h1>
               <p className="body-lg text-muted-foreground max-w-3xl mx-auto">
                 At EcoTrack, we're on a mission to revolutionize waste management through smart technology and data-driven solutions, creating cleaner cities and a healthier planet.
               </p>
@@ -79,7 +78,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
             <ScrollAnimator>
               <div>
-                <h2 className="heading-md mb-6">Our Story</h2>
+                <h2 className="heading-md mb-6 text-foreground">Our Story</h2>
                 <p className="text-muted-foreground mb-4">
                   EcoTrack was founded in 2018 by a team of environmental engineers and technology experts who saw an opportunity to apply cutting-edge technology to the waste management industry.
                 </p>
@@ -110,14 +109,14 @@ const About = () => {
           
           <div className="mb-20">
             <ScrollAnimator>
-              <h2 className="heading-md text-center mb-12">Our Values</h2>
+              <h2 className="heading-md text-center mb-12 text-foreground">Our Values</h2>
             </ScrollAnimator>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <ScrollAnimator key={index} delay={index * 100}>
-                  <div className="bg-secondary/30 p-6 rounded-xl border border-border h-full">
-                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
+                  <div className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all duration-300 dark:hover:shadow-card">
+                    <h3 className="text-xl font-bold mb-3 text-foreground">{value.title}</h3>
                     <p className="text-muted-foreground">{value.description}</p>
                   </div>
                 </ScrollAnimator>
@@ -127,16 +126,16 @@ const About = () => {
         </div>
       </section>
       
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <ScrollAnimator>
-            <h2 className="heading-md text-center mb-12">Meet Our Team</h2>
+            <h2 className="heading-md text-center mb-12 text-foreground">Meet Our Team</h2>
           </ScrollAnimator>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <ScrollAnimator key={index} delay={index * 100}>
-                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 card-hover group">
+                <div className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300 dark:hover:shadow-card">
                   <div className="aspect-square relative overflow-hidden">
                     <img 
                       src={member.image} 
@@ -145,7 +144,7 @@ const About = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                    <h3 className="text-xl font-bold mb-1 text-foreground">{member.name}</h3>
                     <p className="text-primary font-medium mb-3">{member.position}</p>
                     <p className="text-muted-foreground mb-4">{member.bio}</p>
                     <div className="flex space-x-4">
@@ -184,6 +183,7 @@ const About = () => {
         description="Partner with EcoTrack to transform your waste management operations and make a positive environmental impact."
         primaryButtonText="Contact Us"
         secondaryButtonText="View Case Studies"
+        bgColor="bg-background"
       />
     </Layout>
   );

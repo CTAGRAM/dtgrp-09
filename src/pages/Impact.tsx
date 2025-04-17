@@ -1,4 +1,3 @@
-
 import Layout from '../components/layout/Layout';
 import ImpactCard from '../components/impact/ImpactCard';
 import ProgressRing from '../components/impact/ProgressRing';
@@ -7,7 +6,6 @@ import ScrollAnimator from '../components/ui/ScrollAnimator';
 import { LineChart, Line, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Truck, RecycleIcon, Leaf, Droplet, TrendingUp, Clock } from 'lucide-react';
 
-// Sample data for charts
 const monthlyData = [
   { name: 'Jan', waste: 400, recycled: 240 },
   { name: 'Feb', waste: 380, recycled: 230 },
@@ -25,7 +23,7 @@ const carbonData = [
 const Impact = () => {
   return (
     <Layout>
-      <section className="pt-20 pb-8 bg-white">
+      <section className="pt-20 pb-8 bg-background">
         <div className="container mx-auto px-4">
           <ScrollAnimator>
             <div className="text-center mb-16">
@@ -104,12 +102,12 @@ const Impact = () => {
       <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <ScrollAnimator>
-            <h2 className="heading-md text-center mb-12">Detailed Analytics</h2>
+            <h2 className="heading-md text-center mb-12 text-foreground">Detailed Analytics</h2>
           </ScrollAnimator>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             <ScrollAnimator delay={100}>
-              <div className="bg-white p-6 rounded-xl shadow-md">
+              <div className="bg-card p-6 rounded-xl shadow-md dark:shadow-none border border-border">
                 <h3 className="text-xl font-bold mb-4">Monthly Waste Collection & Recycling</h3>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
@@ -144,7 +142,7 @@ const Impact = () => {
             </ScrollAnimator>
             
             <ScrollAnimator delay={200}>
-              <div className="bg-white p-6 rounded-xl shadow-md">
+              <div className="bg-card p-6 rounded-xl shadow-md dark:shadow-none border border-border">
                 <h3 className="text-xl font-bold mb-4">Carbon Footprint Comparison</h3>
                 <p className="text-muted-foreground mb-6">
                   Tons of CO₂ emissions per year for waste management operations
@@ -174,12 +172,12 @@ const Impact = () => {
           
           <div className="text-center mb-12">
             <ScrollAnimator>
-              <h2 className="heading-md mb-8">Goal Progress</h2>
+              <h2 className="heading-md mb-8 text-foreground">Goal Progress</h2>
             </ScrollAnimator>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <ScrollAnimator delay={100}>
-                <div className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+                <div className="bg-card p-6 rounded-xl shadow-md dark:shadow-none border border-border">
                   <h3 className="text-lg font-bold mb-4">Recycling Rate</h3>
                   <ProgressRing progress={68} color="#10b981" size={160} strokeWidth={12}>
                     <span className="text-2xl font-bold">68%</span>
@@ -191,7 +189,7 @@ const Impact = () => {
               </ScrollAnimator>
               
               <ScrollAnimator delay={200}>
-                <div className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+                <div className="bg-card p-6 rounded-xl shadow-md dark:shadow-none border border-border">
                   <h3 className="text-lg font-bold mb-4">Route Efficiency</h3>
                   <ProgressRing progress={85} color="#6366F1" size={160} strokeWidth={12}>
                     <span className="text-2xl font-bold">85%</span>
@@ -203,7 +201,7 @@ const Impact = () => {
               </ScrollAnimator>
               
               <ScrollAnimator delay={300}>
-                <div className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
+                <div className="bg-card p-6 rounded-xl shadow-md dark:shadow-none border border-border">
                   <h3 className="text-lg font-bold mb-4">Carbon Reduction</h3>
                   <ProgressRing progress={72} color="#0ea5e9" size={160} strokeWidth={12}>
                     <span className="text-2xl font-bold">72%</span>
@@ -223,7 +221,7 @@ const Impact = () => {
         description="Schedule a demo today and see how EcoTrack can transform your waste management operations."
         primaryButtonText="Schedule Demo"
         secondaryButtonText="Download Report"
-        bgColor="bg-white"
+        bgColor="bg-background"
       />
     </Layout>
   );
