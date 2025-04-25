@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Truck, Factory, Database } from 'lucide-react';
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs';
 import { animatePathDrawing, animateFloat, animateGlow, animateTruck, animateRipple } from '@/utils/animationUtils';
 import { Card, CardContent } from '@/components/ui/card';
 
