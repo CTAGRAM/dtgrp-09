@@ -1,6 +1,9 @@
 
 import * as animeLib from 'animejs';
-const anime = animeLib.default || animeLib;
+
+// Get the correct function from the imported module
+// In some bundlers, anime might be the default export, in others it might be the module itself
+const anime = typeof animeLib.default === 'function' ? animeLib.default : animeLib;
 
 export const animatePathDrawing = (path: SVGPathElement, duration: number = 2000) => {
   return anime({
