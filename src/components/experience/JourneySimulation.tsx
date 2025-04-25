@@ -1,12 +1,8 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Truck, Factory, Database } from 'lucide-react';
-import * as animeLib from 'animejs';
+import anime from 'animejs';
 import { animatePathDrawing, animateFloat, animateGlow, animateTruck, animateRipple } from '@/utils/animationUtils';
 import { Card, CardContent } from '@/components/ui/card';
-
-// Get the correct function from the imported module
-const anime = typeof animeLib.default === 'function' ? animeLib.default : animeLib;
 
 // Journey milestone data
 const journeyMilestones = [
