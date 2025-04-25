@@ -1,9 +1,10 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Truck, Factory, Database } from 'lucide-react';
-import anime from 'animejs';
+import * as animeLib from 'animejs';
 import { animatePathDrawing, animateFloat, animateGlow, animateTruck, animateRipple } from '@/utils/animationUtils';
 import { Card, CardContent } from '@/components/ui/card';
+
+const anime = animeLib.default || animeLib;
 
 // Journey milestone data
 const journeyMilestones = [
