@@ -1,9 +1,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Truck, Factory, Database } from 'lucide-react';
-import * as animeJs from 'animejs';
-const anime = animeJs.default || animeJs;
-import { animatePathDrawing, animateFloat, animateGlow, animateTruck, animateRipple } from '@/utils/animationUtils';
+import anime from 'animejs';
+import { animateFloat, animateTruck, animateRipple } from '@/utils/animationUtils';
 import { Card, CardContent } from '@/components/ui/card';
 
 // Journey milestone data
@@ -184,8 +183,10 @@ const JourneySimulation = () => {
     
     return () => {
       // Cleanup animations
-      anime.remove('.milestone-node');
-      anime.remove('.grid-line');
+      if (window.anime && typeof anime.remove === 'function') {
+        anime.remove('.milestone-node');
+        anime.remove('.grid-line');
+      }
       
       if (mapRef.current) {
         mapRef.current.removeEventListener('click', () => {});

@@ -1,6 +1,5 @@
 
-import * as animeJs from 'animejs';
-const anime = animeJs.default || animeJs;
+import anime from 'animejs';
 
 export const animatePathDrawing = (path: SVGPathElement, duration: number = 2000) => {
   return anime({
