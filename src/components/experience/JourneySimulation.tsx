@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Truck, Factory, Database } from 'lucide-react';
-import anime from 'animejs';
+import * as anime from 'animejs';
 import { animateFloat, animateTruck, animateRipple } from '@/utils/animationUtils';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -160,12 +160,12 @@ const JourneySimulation = () => {
       // Initialize grid animations
       if (gridRef.current) {
         const gridLines = gridRef.current.querySelectorAll('.grid-line');
-        anime({
+        anime.default({
           targets: gridLines,
           opacity: [0.1, 0.3, 0.1],
           easing: 'easeInOutSine',
           duration: 3000,
-          delay: anime.stagger(100),
+          delay: anime.default.stagger(100),
           loop: true
         });
       }
@@ -183,9 +183,9 @@ const JourneySimulation = () => {
     
     return () => {
       // Cleanup animations
-      if (window.anime && typeof anime.remove === 'function') {
-        anime.remove('.milestone-node');
-        anime.remove('.grid-line');
+      if (typeof anime.default.remove === 'function') {
+        anime.default.remove('.milestone-node');
+        anime.default.remove('.grid-line');
       }
       
       if (mapRef.current) {
@@ -199,7 +199,7 @@ const JourneySimulation = () => {
     if (activeMilestone) {
       const element = document.getElementById(`milestone-${activeMilestone}`);
       if (element) {
-        anime({
+        anime.default({
           targets: element,
           scale: [1, 1.2, 1],
           boxShadow: [
@@ -214,7 +214,7 @@ const JourneySimulation = () => {
         // Animate the milestone card
         const card = document.getElementById(`card-${activeMilestone}`);
         if (card) {
-          anime({
+          anime.default({
             targets: card,
             translateY: [50, 0],
             opacity: [0, 1],
