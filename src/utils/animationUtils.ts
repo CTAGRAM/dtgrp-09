@@ -1,10 +1,10 @@
 
-import * as anime from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 
 export const animatePathDrawing = (path: SVGPathElement, duration: number = 2000) => {
-  return anime.default({
+  return anime({
     targets: path,
-    strokeDashoffset: [anime.default.setDashoffset, 0],
+    strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutSine',
     duration,
     autoplay: false
@@ -12,7 +12,7 @@ export const animatePathDrawing = (path: SVGPathElement, duration: number = 2000
 };
 
 export const animateFloat = (element: HTMLElement, intensity: number = 10) => {
-  return anime.default({
+  return anime({
     targets: element,
     translateY: [0, -intensity, 0],
     duration: 3000,
@@ -23,7 +23,7 @@ export const animateFloat = (element: HTMLElement, intensity: number = 10) => {
 };
 
 export const animateGlow = (element: HTMLElement, scale: number = 1.1) => {
-  return anime.default({
+  return anime({
     targets: element,
     scale: [1, scale, 1],
     opacity: [0.8, 1, 0.8],
@@ -57,7 +57,7 @@ export const animateTruck = (
   const dy = nextPoint.y - currentPoint.y;
   const angle = Math.atan2(dy, dx) * (180 / Math.PI);
   
-  anime.default({
+  anime({
     targets: truck,
     left: `${x}%`,
     top: `${y}%`,
@@ -70,7 +70,7 @@ export const animateTruck = (
 export const animateCounter = (element: HTMLElement, target: number, duration: number = 2000) => {
   let obj = { count: 0 };
   
-  return anime.default({
+  return anime({
     targets: obj,
     count: target,
     round: 1,
@@ -92,7 +92,7 @@ export const animateRipple = (container: HTMLElement, x: number, y: number) => {
   
   container.appendChild(ripple);
   
-  anime.default({
+  anime({
     targets: ripple,
     scale: [0, 5],
     opacity: [0.8, 0],
