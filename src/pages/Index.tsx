@@ -1,7 +1,7 @@
 
 import HeroSection from '../components/home/HeroSection';
 import FeaturesSection from '../components/home/FeaturesSection';
-import TestimonialsSection from '../components/home/TestimonialsSection';
+import SolutionsSection from '../components/home/SolutionsSection';
 import StatsSection from '../components/home/StatsSection';
 import CtaSection from '../components/shared/CtaSection';
 import Layout from '../components/layout/Layout';
@@ -11,8 +11,8 @@ const Index = () => {
     <Layout>
       <HeroSection />
       <FeaturesSection />
+      <SolutionsSection />
       <StatsSection />
-      <TestimonialsSection />
       <CtaSection />
     </Layout>
   );
