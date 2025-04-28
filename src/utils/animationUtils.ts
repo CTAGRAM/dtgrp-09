@@ -1,5 +1,5 @@
 
-import anime from 'animejs/lib/anime.es.js';
+// No imports needed - anime is globally available from CDN
 
 export const animatePathDrawing = (path: SVGPathElement, duration: number = 2000) => {
   return anime({

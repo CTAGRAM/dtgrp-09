@@ -1,11 +1,8 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Truck, Factory, Database } from 'lucide-react';
-import anime from 'animejs/lib/anime.es.js';
 import { animateFloat, animateTruck, animateRipple } from '@/utils/animationUtils';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Journey milestone data
 const journeyMilestones = [
   {
     id: 'smart-bin',
@@ -45,7 +42,6 @@ const journeyMilestones = [
   }
 ];
 
-// Truck path coordinates with bezier curve points
 const truckPath = [
   { x: 10, y: 15 },
   { x: 20, y: 25 },
@@ -68,12 +64,10 @@ const JourneySimulation = () => {
   const [completedMilestones, setCompletedMilestones] = useState<string[]>([]);
   const [showStats, setShowStats] = useState(false);
   
-  // Generate the SVG path for the truck to follow
   const generatePathD = () => {
     return `M ${truckPath.map(p => `${p.x} ${p.y}`).join(' L ')}`;
   };
   
-  // Handle scroll events to update animations
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -82,14 +76,11 @@ const JourneySimulation = () => {
       const rect = container.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate how much of the container is visible
       let progress = 0;
       
       if (rect.top < windowHeight && rect.bottom > 0) {
-        // Calculate scroll progress (0 to 1)
         progress = Math.max(0, Math.min(1, 1 - (rect.top / (windowHeight - rect.height * 0.5))));
         
-        // Update active milestone based on progress
         let newActiveMilestone = null;
         let newCompletedMilestones = [...completedMilestones];
         
@@ -112,7 +103,6 @@ const JourneySimulation = () => {
           newActiveMilestone = 'municipal-hq';
           if (!completedMilestones.includes('municipal-hq')) {
             newCompletedMilestones.push('municipal-hq');
-            // Show final stats when reaching the last milestone
             if (progress > 0.9) setShowStats(true);
           }
         }
@@ -120,18 +110,15 @@ const JourneySimulation = () => {
         setActiveMilestone(newActiveMilestone);
         setCompletedMilestones(newCompletedMilestones);
       } else if (rect.bottom <= 0) {
-        // Beyond the container
         progress = 1;
       }
       
       setScrollProgress(progress);
       
-      // Animate the truck along the path
       if (truckRef.current) {
         animateTruck(truckRef.current, truckPath, progress);
       }
       
-      // Animate the path drawing
       if (pathRef.current && progress > 0) {
         const pathLength = pathRef.current.getTotalLength();
         pathRef.current.style.strokeDashoffset = String(pathLength * (1 - progress));
@@ -139,50 +126,52 @@ const JourneySimulation = () => {
     };
     
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial calculation
+    handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, [completedMilestones]);
   
-  // Initialize animations
   useEffect(() => {
-    if (mapRef.current && pathRef.current) {
-      // Initialize the path drawing
-      const pathLength = pathRef.current.getTotalLength();
-      pathRef.current.style.strokeDasharray = String(pathLength);
-      pathRef.current.style.strokeDashoffset = String(pathLength);
-      
-      // Initialize floating animations for milestones
-      document.querySelectorAll('.milestone-node').forEach((node) => {
-        animateFloat(node as HTMLElement, 8);
-      });
-      
-      // Initialize grid animations
-      if (gridRef.current) {
-        const gridLines = gridRef.current.querySelectorAll('.grid-line');
-        anime({
-          targets: gridLines,
-          opacity: [0.1, 0.3, 0.1],
-          easing: 'easeInOutSine',
-          duration: 3000,
-          delay: anime.stagger(100),
-          loop: true
+    const initializeAnimations = () => {
+      if (mapRef.current && pathRef.current) {
+        const pathLength = pathRef.current.getTotalLength();
+        pathRef.current.style.strokeDasharray = String(pathLength);
+        pathRef.current.style.strokeDashoffset = String(pathLength);
+        
+        document.querySelectorAll('.milestone-node').forEach((node) => {
+          animateFloat(node as HTMLElement, 8);
+        });
+        
+        if (gridRef.current) {
+          const gridLines = gridRef.current.querySelectorAll('.grid-line');
+          anime({
+            targets: gridLines,
+            opacity: [0.1, 0.3, 0.1],
+            easing: 'easeInOutSine',
+            duration: 3000,
+            delay: anime.stagger(100),
+            loop: true
+          });
+        }
+
+        mapRef.current.addEventListener('click', (e) => {
+          if (mapRef.current) {
+            const rect = mapRef.current.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            animateRipple(mapRef.current, x, y);
+          }
         });
       }
+    };
 
-      // Add click handler for ripple effects
-      mapRef.current.addEventListener('click', (e) => {
-        if (mapRef.current) {
-          const rect = mapRef.current.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          animateRipple(mapRef.current, x, y);
-        }
-      });
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      initializeAnimations();
+    } else {
+      window.addEventListener('DOMContentLoaded', initializeAnimations);
     }
     
     return () => {
-      // Cleanup animations
       if (typeof anime.remove === 'function') {
         anime.remove('.milestone-node');
         anime.remove('.grid-line');
@@ -191,10 +180,11 @@ const JourneySimulation = () => {
       if (mapRef.current) {
         mapRef.current.removeEventListener('click', () => {});
       }
+      
+      window.removeEventListener('DOMContentLoaded', initializeAnimations);
     };
   }, []);
   
-  // The effect to animate active milestone
   useEffect(() => {
     if (activeMilestone) {
       const element = document.getElementById(`milestone-${activeMilestone}`);
@@ -211,7 +201,6 @@ const JourneySimulation = () => {
           easing: 'easeOutElastic(1, .5)'
         });
         
-        // Animate the milestone card
         const card = document.getElementById(`card-${activeMilestone}`);
         if (card) {
           anime({
@@ -231,10 +220,8 @@ const JourneySimulation = () => {
       ref={containerRef} 
       className="relative h-[300vh] bg-secondary/10 overflow-hidden rounded-xl"
     >
-      {/* Sticky container for journey visualization */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="relative w-full max-w-5xl mx-4 h-[80vh] rounded-xl bg-card shadow-lg overflow-hidden">
-          {/* Journey title */}
           <div className="absolute top-4 left-0 w-full text-center z-10">
             <h2 className="heading-md text-foreground">Smart City Waste Journey</h2>
             <p className="text-muted-foreground text-sm mt-1">
@@ -242,12 +229,10 @@ const JourneySimulation = () => {
             </p>
           </div>
           
-          {/* Map area with journey visualization */}
           <div 
             ref={mapRef}
             className="absolute inset-0 mt-16 flex items-center justify-center"
           >
-            {/* Grid background */}
             <div 
               ref={gridRef}
               className="absolute inset-0 grid grid-cols-12 grid-rows-12"
@@ -260,9 +245,7 @@ const JourneySimulation = () => {
               ))}
             </div>
             
-            {/* Journey path */}
             <svg className="absolute inset-0 w-full h-full">
-              {/* Background path (dotted) */}
               <path
                 d={generatePathD()}
                 stroke="hsl(var(--border))"
@@ -272,7 +255,6 @@ const JourneySimulation = () => {
                 opacity="0.6"
               />
               
-              {/* Animated foreground path */}
               <path
                 ref={pathRef}
                 d={generatePathD()}
@@ -283,7 +265,6 @@ const JourneySimulation = () => {
               />
             </svg>
             
-            {/* Truck icon */}
             <div 
               ref={truckRef}
               className="absolute w-14 h-14 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 z-30"
@@ -298,7 +279,6 @@ const JourneySimulation = () => {
               </div>
             </div>
             
-            {/* Milestone nodes */}
             {journeyMilestones.map((milestone) => (
               <div
                 key={milestone.id}
@@ -326,7 +306,6 @@ const JourneySimulation = () => {
                   )}
                 </div>
                 
-                {/* Milestone info card */}
                 {activeMilestone === milestone.id && (
                   <Card 
                     id={`card-${milestone.id}`}
@@ -348,7 +327,6 @@ const JourneySimulation = () => {
             ))}
           </div>
           
-          {/* Final stats section (appears at the end of journey) */}
           {showStats && (
             <div className="absolute bottom-8 left-0 w-full flex justify-center">
               <Card className="p-6 bg-card/90 backdrop-blur-sm flex flex-col items-center animate-fade-in-up">
@@ -376,7 +354,6 @@ const JourneySimulation = () => {
         </div>
       </div>
       
-      {/* Progress indicator */}
       <div className="fixed top-1/2 right-4 transform -translate-y-1/2 z-50 hidden md:block">
         <div className="flex flex-col items-center gap-3">
           {journeyMilestones.map((milestone, index) => (
