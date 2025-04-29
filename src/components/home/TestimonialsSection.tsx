@@ -1,11 +1,10 @@
-
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import ScrollAnimator from '../ui/ScrollAnimator';
 
 const testimonials = [
   {
-    quote: "EcoTrack has transformed our waste management operations. We've reduced fuel costs by 32% and increased collection efficiency by 45% in just six months.",
+    quote: "EcoBin has transformed our waste management operations. We've reduced fuel costs by 32% and increased collection efficiency by 45% in just six months.",
     author: "Sarah Johnson",
     position: "Director of Operations, Metro City Waste Management",
     image: "https://randomuser.me/api/portraits/women/44.jpg"
@@ -17,7 +16,7 @@ const testimonials = [
     image: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
-    quote: "The route optimization alone saved us thousands in operational costs. The ROI was evident within the first quarter of using EcoTrack.",
+    quote: "The route optimization alone saved us thousands in operational costs. The ROI was evident within the first quarter of using EcoBin.",
     author: "Jessica Miller",
     position: "CFO, Regional Waste Systems",
     image: "https://randomuser.me/api/portraits/women/68.jpg"
@@ -42,12 +41,12 @@ const TestimonialsSection = () => {
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4 text-foreground dark:text-white">What Our Clients Say</h2>
             <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
-              Hear from organizations that have transformed their waste management with EcoTrack.
+              Hear from organizations that have transformed their waste management with EcoBin.
             </p>
           </div>
         </ScrollAnimator>
         
-        <div className="max-w-4xl mx-auto relative">
+        <div className="relative max-w-4xl mx-auto">
           <ScrollAnimator delay={100}>
             <div className="relative bg-white dark:bg-card/50 p-8 md:p-12 rounded-2xl shadow-lg dark:shadow-2xl">
               <div className="absolute -top-6 left-10 w-12 h-12 flex items-center justify-center bg-primary rounded-full">
@@ -74,7 +73,7 @@ const TestimonialsSection = () => {
                 </div>
               </div>
               
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <button 
                   onClick={goToPrevious}
                   className="p-2 rounded-full bg-secondary dark:bg-white/10 hover:bg-secondary/80 dark:hover:bg-white/20 transition-colors"

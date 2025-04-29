@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Check, ChevronLeft } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
@@ -86,18 +85,17 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
 
       <ScrollAnimator delay={250}>
         <div className="mb-8">
-          <div className="flex items-start">
+          <label className="flex items-start space-x-3">
             <input
               type="checkbox"
-              id="privacy"
               checked={isPrivacyAccepted}
               onChange={(e) => setIsPrivacyAccepted(e.target.checked)}
               className="mt-1"
             />
-            <label htmlFor="privacy" className="ml-2 text-muted-foreground">
-              I agree to the <a href="#" className="text-primary underline">privacy policy</a> and consent to being contacted about EcoTrack services.
-            </label>
-          </div>
+            <span className="text-sm text-muted-foreground">
+              I agree to the <a href="#" className="text-primary underline">privacy policy</a> and consent to being contacted about EcoBin services.
+            </span>
+          </label>
         </div>
       </ScrollAnimator>
 
@@ -112,9 +110,9 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
           </button>
           <button
             type="submit"
-            className="btn-primary flex items-center gap-2"
+            className="btn-primary"
           >
-            Submit <Check size={18} />
+            Submit
           </button>
         </div>
       </ScrollAnimator>

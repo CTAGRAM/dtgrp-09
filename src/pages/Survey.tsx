@@ -1,4 +1,3 @@
-
 import Layout from '../components/layout/Layout';
 import SurveyForm from '../components/survey/SurveyForm';
 import ScrollAnimator from '../components/ui/ScrollAnimator';
@@ -12,7 +11,7 @@ const Survey = () => {
             <div className="text-center mb-16">
               <h1 className="heading-lg mb-4 text-foreground">Waste Management Assessment</h1>
               <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
-                Answer a few questions to help us understand your waste management needs and discover how EcoTrack can help optimize your operations.
+                Answer a few questions to help us understand your waste management needs and discover how EcoBin can help optimize your operations.
               </p>
             </div>
           </ScrollAnimator>

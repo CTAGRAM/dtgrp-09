@@ -1,4 +1,3 @@
-
 import HeroSection from '../components/home/HeroSection';
 import FeaturesSection from '../components/home/FeaturesSection';
 import SolutionsSection from '../components/home/SolutionsSection';

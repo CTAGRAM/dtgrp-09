@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import ScrollAnimator from '../ui/ScrollAnimator';
 
@@ -83,9 +82,9 @@ const ImpactCard = ({
 }: ImpactCardProps) => {
   return (
     <ScrollAnimator delay={delay}>
-      <div className="bg-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden dark:bg-secondary/20 dark:border dark:border-border">
+      <div className="bg-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden dark:bg-secondary/20 dark:border dark:border-border h-full">
         <div className={`${color} h-2`}></div>
-        <div className="p-6 dark:bg-card/50">
+        <div className="p-6 dark:bg-card/50 flex flex-col h-full">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-lg text-foreground dark:text-foreground">{title}</h3>
             {icon && <div className="text-muted-foreground dark:text-muted-foreground/80">{icon}</div>}
