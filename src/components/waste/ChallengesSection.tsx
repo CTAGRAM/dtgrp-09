@@ -1,29 +1,30 @@
+
 import ScrollAnimator from '../ui/ScrollAnimator';
-import { ArrowTrendingUpIcon, ExclamationTriangleIcon, BoltIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline';
+import { TrendingUp, AlertTriangle, Zap, Building2 } from 'lucide-react';
 
 const challenges = [
   {
     title: 'Growing Urban Population',
     description: 'Rapid urbanization leads to increased waste generation, straining existing infrastructure.',
-    icon: ArrowTrendingUpIcon,
+    icon: TrendingUp,
     solution: 'Implementing smart waste collection systems and expanding processing facilities.',
   },
   {
     title: 'Improper Waste Segregation',
-    description: 'Lack of proper waste segregation at source hampers recycling and processing efforts.',
-    icon: ExclamationTriangleIcon,
+    description: 'Lack of proper segregation at source hampers recycling and processing efforts.',
+    icon: AlertTriangle,
     solution: 'Community education programs and incentivized waste segregation initiatives.',
   },
   {
     title: 'Limited Processing Capacity',
     description: 'Current waste processing facilities are insufficient to handle growing waste volumes.',
-    icon: BoltIcon,
+    icon: Zap,
     solution: 'Investment in modern waste processing technologies and infrastructure expansion.',
   },
   {
     title: 'Urban Planning Constraints',
     description: 'Dense urban areas pose challenges for waste collection and transportation.',
-    icon: BuildingOfficeIcon,
+    icon: Building2,
     solution: 'Optimized route planning and decentralized waste management facilities.',
   },
 ];
