@@ -1,46 +1,7 @@
+
 import Layout from '../components/layout/Layout';
 import CtaSection from '../components/shared/CtaSection';
 import ScrollAnimator from '../components/ui/ScrollAnimator';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
-
-const teamMembers = [
-  {
-    name: 'Sarah Johnson',
-    position: 'CEO & Co-Founder',
-    bio: 'Former Environmental Engineer with 15+ years of experience in sustainable waste management solutions.',
-    image: 'https://randomuser.me/api/portraits/women/44.jpg'
-  },
-  {
-    name: 'Michael Chen',
-    position: 'CTO',
-    bio: 'AI specialist with a background in route optimization algorithms and IoT sensor networks.',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg'
-  },
-  {
-    name: 'Jessica Miller',
-    position: 'COO',
-    bio: 'Operations expert who has helped scale multiple tech startups in the sustainability sector.',
-    image: 'https://randomuser.me/api/portraits/women/68.jpg'
-  },
-  {
-    name: 'David Wilson',
-    position: 'Head of Product',
-    bio: 'Product leader focused on creating intuitive software solutions for complex environmental challenges.',
-    image: 'https://randomuser.me/api/portraits/men/75.jpg'
-  },
-  {
-    name: 'Elena Rodriguez',
-    position: 'Lead Data Scientist',
-    bio: 'PhD in Applied Mathematics with expertise in predictive modeling for waste management systems.',
-    image: 'https://randomuser.me/api/portraits/women/33.jpg'
-  },
-  {
-    name: 'James Lee',
-    position: 'Head of Partnerships',
-    bio: 'Former city planner who now helps municipalities implement smart waste management solutions.',
-    image: 'https://randomuser.me/api/portraits/men/55.jpg'
-  },
-];
 
 const values = [
   {
@@ -127,59 +88,6 @@ const About = () => {
                 </ScrollAnimator>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-      
-      <section className="py-20 bg-secondary/5">
-        <div className="container mx-auto px-4">
-          <ScrollAnimator>
-            <h2 className="heading-md text-center mb-12 text-foreground">Meet Our Team</h2>
-          </ScrollAnimator>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <ScrollAnimator key={index} delay={index * 100}>
-                <div className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300 dark:hover:shadow-card">
-                  <div className="aspect-square relative overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-1 text-foreground">{member.name}</h3>
-                    <p className="text-primary font-medium mb-3">{member.position}</p>
-                    <p className="text-muted-foreground mb-4">{member.bio}</p>
-                    <div className="flex space-x-4">
-                      <a 
-                        href="#" 
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                        aria-label={`${member.name}'s LinkedIn profile`}
-                      >
-                        <Linkedin size={20} />
-                      </a>
-                      <a 
-                        href="#" 
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                        aria-label={`${member.name}'s Twitter profile`}
-                      >
-                        <Twitter size={20} />
-                      </a>
-                      <a 
-                        href="#" 
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                        aria-label={`Email ${member.name}`}
-                      >
-                        <Mail size={20} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </ScrollAnimator>
-            ))}
           </div>
         </div>
       </section>
