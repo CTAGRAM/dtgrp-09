@@ -9,7 +9,74 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      survey_challenges: {
+        Row: {
+          challenge: string
+          created_at: string | null
+          id: string
+          is_custom: boolean
+          survey_id: string | null
+        }
+        Insert: {
+          challenge: string
+          created_at?: string | null
+          id?: string
+          is_custom?: boolean
+          survey_id?: string | null
+        }
+        Update: {
+          challenge?: string
+          created_at?: string | null
+          id?: string
+          is_custom?: boolean
+          survey_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "survey_challenges_survey_id_fkey"
+            columns: ["survey_id"]
+            isOneToOne: false
+            referencedRelation: "survey_responses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      survey_responses: {
+        Row: {
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          org_type: string
+          organization_name: string
+          privacy_accepted: boolean
+          updated_at: string | null
+          waste_volume: string
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          org_type: string
+          organization_name: string
+          privacy_accepted?: boolean
+          updated_at?: string | null
+          waste_volume: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          org_type?: string
+          organization_name?: string
+          privacy_accepted?: boolean
+          updated_at?: string | null
+          waste_volume?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

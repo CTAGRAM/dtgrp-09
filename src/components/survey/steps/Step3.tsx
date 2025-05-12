@@ -1,10 +1,15 @@
+
 import { useState } from 'react';
-import { Check, ChevronLeft } from 'lucide-react';
+import { Check, ChevronLeft, Loader2 } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
 import ScrollAnimator from '../../ui/ScrollAnimator';
 import { SurveyStepProps } from '../types';
 
-const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
+interface Step3Props extends SurveyStepProps {
+  isSubmitting?: boolean;
+}
+
+const Step3 = ({ onNext, onBack, data, isSubmitting = false }: Step3Props) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
@@ -49,6 +54,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             onChange={(e) => setName(e.target.value)}
             className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
             placeholder="Enter your full name"
+            disabled={isSubmitting}
           />
         </div>
       </ScrollAnimator>
@@ -64,6 +70,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
             placeholder="your@email.com"
+            disabled={isSubmitting}
           />
         </div>
       </ScrollAnimator>
@@ -79,6 +86,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             onChange={(e) => setOrganization(e.target.value)}
             className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-background text-foreground"
             placeholder="Enter your organization name"
+            disabled={isSubmitting}
           />
         </div>
       </ScrollAnimator>
@@ -91,6 +99,7 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
               checked={isPrivacyAccepted}
               onChange={(e) => setIsPrivacyAccepted(e.target.checked)}
               className="mt-1"
+              disabled={isSubmitting}
             />
             <span className="text-sm text-muted-foreground">
               I agree to the <a href="#" className="text-primary underline">privacy policy</a> and consent to being contacted about EcoBin services.
@@ -105,14 +114,22 @@ const Step3 = ({ onNext, onBack, data }: SurveyStepProps) => {
             type="button"
             onClick={onBack}
             className="btn-secondary flex items-center gap-2"
+            disabled={isSubmitting}
           >
             <ChevronLeft size={18} /> Back
           </button>
           <button
             type="submit"
-            className="btn-primary"
+            className="btn-primary flex items-center gap-2"
+            disabled={isSubmitting}
           >
-            Submit
+            {isSubmitting ? (
+              <>
+                <Loader2 size={18} className="animate-spin" /> Submitting...
+              </>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </ScrollAnimator>
